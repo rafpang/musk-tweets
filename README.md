@@ -13,5 +13,7 @@ Current objectives/questions:
 4. Develop an NLP model to predict the like/retweet count if musk tweeted a user-specified tweet
 5. Perhaps some other fun facts about his tweets ?!
 
+Everything will be deployed using streamlit and heroku!
+
 Dataset was taken from here: https://www.kaggle.com/datasets/alexhuggler/elonmusk-tweets-as-of-9292022
 
