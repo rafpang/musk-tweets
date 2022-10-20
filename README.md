@@ -6,7 +6,8 @@ Current objectives/questions:
 
 1. When does he usually tweet?
 2. Add sentiments to his tweets using pretrained model
-2.1 Is there a trend in the sentiments of Musk's tweets? 
+
+2.1. Is there a trend in the sentiments of Musk's tweets? 
  - Change of sentiments based on time of day
  - Change of average sentiment score over time
 
