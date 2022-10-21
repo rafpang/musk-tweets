@@ -17,7 +17,7 @@ config = AutoConfig.from_pretrained(MODEL)
 # PT
 model = AutoModelForSequenceClassification.from_pretrained(MODEL)
 #model.save_pretrained(MODEL)
-text = "i am so happy"
+text = "i am upset"
 text = preprocess(text)
 encoded_input = tokenizer(text, return_tensors='pt')
 output = model(**encoded_input)
