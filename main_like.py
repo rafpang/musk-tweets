@@ -13,19 +13,18 @@ from transformers import AdamW
 from transformers import get_linear_schedule_with_warmup
 
 
-def main(df_train, ):
-    dfx = pd.read_csv(config.TRAINING_FILE).fillna("none")
-    dfx.sentiment = dfx.sentiment.apply(lambda x: 1 if x == "positive" else 0)
+def main_like(df_train, ):
+    final_data = pd.read_csv('final_data.csv')
 
     df_train, df_valid = model_selection.train_test_split(
-        dfx, test_size=0.1, random_state=42, 
+        final_data, test_size=0.1, random_state=42, 
     )
 
     df_train = df_train.reset_index(drop=True)
     df_valid = df_valid.reset_index(drop=True)
 
     train_dataset = dataset.BERTDataset(
-        review=df_train.review.values, target=df_train.sentiment.values
+        tweet=df_train['preprocessed_tweet'].values, target=df_train['like count'].values
     )
 
     train_data_loader = torch.utils.data.DataLoader(
@@ -33,7 +32,7 @@ def main(df_train, ):
     )
 
     valid_dataset = dataset.BERTDataset(
-        review=df_valid.review.values, target=df_valid.sentiment.values
+        tweet=df_valid['preprocessed_tweet'].values, target=df_train['like count'].values
     )
 
     valid_data_loader = torch.utils.data.DataLoader(
@@ -80,4 +79,4 @@ def main(df_train, ):
 
 
 if __name__ == "__main__":
-    run()
+    main_like()
