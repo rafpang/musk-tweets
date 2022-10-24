@@ -13,7 +13,7 @@ from transformers import AdamW
 from transformers import get_linear_schedule_with_warmup
 
 
-def run():
+def run(df_train, ):
     dfx = pd.read_csv(config.TRAINING_FILE).fillna("none")
     dfx.sentiment = dfx.sentiment.apply(lambda x: 1 if x == "positive" else 0)
 
