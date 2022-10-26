@@ -18,4 +18,4 @@ Current objectives/questions:
 Everything will be deployed using streamlit and heroku!
 
 Dataset was taken from here: https://www.kaggle.com/datasets/alexhuggler/elonmusk-tweets-as-of-9292022
-
+Special thanks to Abishek Thakur (4x Kaggle Grandmaster) for his machine learning/NLP framework!
