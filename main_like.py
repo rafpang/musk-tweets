@@ -70,12 +70,9 @@ def main_like():
     for epoch in range(config.EPOCHS):
         engine.train_fn(train_data_loader, model, optimizer, device, scheduler)
         outputs, targets = engine.eval_fn(valid_data_loader, model, device)
-        outputs = np.array(outputs) >= 0.5
-        accuracy = metrics.accuracy_score(targets, outputs)
-        print(f"Accuracy Score = {accuracy}")
-        if accuracy > best_accuracy:
-            torch.save(model.state_dict(), config.MODEL_PATH)
-            best_accuracy = accuracy
+        mse_loss = engine.loss_fn(outputs,targets)
+        print(f"Epoch {epoch} MSE Score = {mse_loss}")
+        
 
 
 if __name__ == "__main__":
