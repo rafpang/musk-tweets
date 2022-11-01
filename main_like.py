@@ -66,14 +66,15 @@ def main_like():
         optimizer, num_warmup_steps=0, num_training_steps=num_train_steps
     )
 
-    best_accuracy = 0
+    best_mse = 1e6
     for epoch in range(config.EPOCHS):
         engine.train_fn(train_data_loader, model, optimizer, device, scheduler)
         outputs, targets = engine.eval_fn(valid_data_loader, model, device)
         mse_loss = engine.loss_fn(outputs,targets)
-        print(f"Epoch {epoch} MSE Score = {mse_loss}")
-        
-
-
+        print(f"Epoch {epoch} MSE Score = {mse_loss}")    
+        if mse_loss < best_mse:
+           best_mse = mse_loss
+    print(f"Best MSE obtained {best_mse}")
+    
 if __name__ == "__main__":
     main_like()
