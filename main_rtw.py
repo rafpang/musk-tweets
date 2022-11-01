@@ -13,7 +13,7 @@ from transformers import AdamW
 from transformers import get_linear_schedule_with_warmup
 
 
-def main_like():
+def main_rtw():
     final_data = pd.read_csv('final_data.csv')
 
     df_train, df_valid = model_selection.train_test_split(
@@ -24,7 +24,7 @@ def main_like():
     df_valid = df_valid.reset_index(drop=True)
 
     train_dataset = dataset.BERTDataset(
-        tweet=df_train['preprocessed_tweet'].values, target=df_train['like count'].values
+        tweet=df_train['preprocessed_tweet'].values, target=df_train['retweet count'].values
     )
 
     train_data_loader = torch.utils.data.DataLoader(
@@ -77,4 +77,4 @@ def main_like():
     print(f"Best MSE obtained {best_mse}")
     
 if __name__ == "__main__":
-    main_like()
+    main_rtw()
