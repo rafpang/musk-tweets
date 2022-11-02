@@ -5,7 +5,7 @@ import torch
 import pandas as pd
 import torch.nn as nn
 import numpy as np
-
+import pickle 
 from model import BERTBaseUncased
 from sklearn import model_selection
 from sklearn import metrics
@@ -75,6 +75,10 @@ def main_like():
         if mse_loss < best_mse:
            best_mse = mse_loss
     print(f"Best MSE obtained {best_mse}")
-    
+    #save model to pkl file
+    file_name = 'like_model.pkl'
+    with open(file_name,'wb' ) as pickle_file:
+        pickle.dump(model, pickle_file)
+
 if __name__ == "__main__":
     main_like()
