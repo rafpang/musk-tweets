@@ -22,3 +22,5 @@ Dataset was taken from here: https://www.kaggle.com/datasets/alexhuggler/elonmus
 
 
 Special thanks to Abishek Thakur (4x Kaggle Grandmaster) for his machine learning/NLP framework!
+
+Development is halted due to personal issues. Hope to complete by Feburary 2023 :)
